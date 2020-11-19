@@ -19,11 +19,10 @@ function apiFacade() {
       });
   };
 
-  const signup = (username, password, name) =>{
+  const signup = (username, password) =>{
     const options = makeOptions("POST", true, {
       username,
-      password,
-      name
+      password
     }); 
     return fetch("http://localhost:8080/jpareststarter/api/signup", options).then(handleHttpErrors);
   }

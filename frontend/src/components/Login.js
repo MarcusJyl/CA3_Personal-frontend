@@ -26,7 +26,7 @@ function Login({ login, user }) {
           <input
             type="input"
             className="form__field"
-            placeholder="User name"
+            placeholder="Name"
             name="username"
             id="username"
             required

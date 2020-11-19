@@ -6,12 +6,11 @@ import "./Navbar.css";
 function Navbar({userRole}) {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
-  const [currentUserRole, setCurrentUserRole] = useState([...userRole]);
-
-  useEffect(()=> setCurrentUserRole([...userRole]),[userRole])
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
+  const [currentUserRole, setCurrentUserRole] = useState([...userRole]);
+
 
   const showButton = () => {
     if (window.innerWidth <= 960) {
@@ -25,6 +24,8 @@ function Navbar({userRole}) {
     showButton();
   }, []);
 
+  useEffect(()=> setCurrentUserRole([...userRole]),[userRole])
+
   window.addEventListener("resize", showButton);
 
   function LinkMaker({ text, path }) {
@@ -36,8 +37,6 @@ function Navbar({userRole}) {
       </li>
     );
   }
-
-
 
   return (
     <>
@@ -51,10 +50,12 @@ function Navbar({userRole}) {
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
           </div>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
-            {(currentUserRole.includes("admin"))?(<LinkMaker text="Admin jokes" path="" />):(<></>)}
-            <LinkMaker text="Services" path="services" />
-            
+            <LinkMaker text="Home" path="" />
+          
+            {(currentUserRole.includes("admin"))?( <LinkMaker text="Kanye" path="kanye" />):(<></>)}
+
             <LinkMaker text="Products" path="products" />
+            
             <li>
               <Link
                 to="/signin"
@@ -67,7 +68,7 @@ function Navbar({userRole}) {
           </ul>
 
           {button && (
-            <Link to="signin" className="btn-mobile">
+            <Link to="/signin" className="btn-mobile">
               <Button buttonStyle="btn--outline" link="/signin">
                 SING IN
               </Button>

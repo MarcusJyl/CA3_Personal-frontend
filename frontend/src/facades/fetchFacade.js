@@ -8,8 +8,5 @@ function jokeFetcher() {
   };
   return { fetchData };
 }
-
-
 const facade = jokeFetcher();
-
 export default facade;

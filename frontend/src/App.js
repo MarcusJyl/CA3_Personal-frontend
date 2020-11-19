@@ -7,12 +7,12 @@ import facade from "./facades/LoginFacade";
 import Home from "./components/Home";
 import Signup from "./components/Signup";
 import Kanye from "./components/KanyeQuote";
+import AllNames from "./components/names";
 
 function App() {
   const [user, setUser] = useState("Loading...");
   const [loggedIn, setLoggedIn] = useState(false);
   const [userRole, setUserRole] = useState([]);
- 
 
   const login = (user, pass) => {
     facade
@@ -41,14 +41,17 @@ function App() {
   return (
     <>
       <Router>
-        <Navbar userRole = {userRole}/>
+        <Navbar userRole={userRole}/>
         <Switch>
           <Route path="/" exact>
             <Home />
           </Route>
-          <Route path="/services" />
+          <Route path="/kanye">
             <Kanye/>
-          <Route path="/products" />
+          </Route>
+          <Route path="/products">
+            <AllNames/>
+          </Route>
           <Route path="/signin">
             <Login
               userRole={userRole}

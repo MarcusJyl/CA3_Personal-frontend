@@ -50,7 +50,7 @@ function Signup({ login, user }) {
           <input
             type="input"
             className="form__field"
-            placeholder="User name"
+            placeholder="Name"
             name="username"
             id="username"
             required
@@ -73,16 +73,6 @@ function Signup({ login, user }) {
             placeholder="Password"
             name="password2"
             id="password2"
-            required
-          />
-        </div>
-        <div className="input">
-          <input
-            type="name"
-            className="form__field"
-            placeholder="Full name"
-            name="full_name"
-            id="full_name"
             required
           />
         </div>
